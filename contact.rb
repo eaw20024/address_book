@@ -74,16 +74,6 @@ class Contact
 
 end
 
-eric = Contact.new 
-eric.first_name = "Eric"
-eric.middle_name = "Anthony"
-eric.last_name = "Washington"
-eric.add_phone_number("Cell", "202-220-2200")
-eric.add_address("Home", "123 Main St SW", "", "Washington, DC", "DC", "20024")
-
-puts eric.to_s('last_first')
-print eric.print_phone_numbers
-print eric.print_addresses
 
 
 
