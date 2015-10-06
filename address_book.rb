@@ -6,6 +6,36 @@ class AddressBook
   def initialize
     @contacts = []
   end
+    
+    def run
+        loop do 
+            puts "Address Book"
+            puts "p: Print Address Book"
+            puts "a: Add Contact"
+            puts "e: Exit"
+            print "Enter your choice: "
+            input = gets.chomp.downcase
+            case input
+            when 'a'
+                add_contact
+            when 'p'
+               print_contact_list
+            when 'e'
+                break
+            end
+        end
+    end
+    
+    def add_contact
+        contact = Contact.new
+        print "First Name:"
+        contact.first_name = gets.chomp
+        print "Middle Name:"
+        contact.middle_name = gets.chomp
+        print "Last Name:"
+        contact.last_name = gets.chomp
+        contacts.push(contact)
+    end
   
   def print_results(search, results)
     puts search
@@ -63,21 +93,4 @@ class AddressBook
 end
 
 address_book = AddressBook.new
-
-address_book = AddressBook.new
-
-eric = Contact.new
-eric.first_name = "Eric"
-eric.last_name = "Washington"
-eric.add_phone_number("Home", "123-456-7890")
-eric.add_phone_number("Work", "456-789-0123")
-eric.add_address("Home", "123 Main St.", "", "Washington", "DC", "12345")
-
-
-address_book.contacts.push(eric)
-
-#address_book.print_contact_list
-
-address_book.find_by_name("e")
-address_book.find_by_phone_number("123") 
-address_book.find_by_address("Main")
+address_book.run
